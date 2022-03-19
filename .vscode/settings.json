@@ -1,0 +1,12 @@
+{
+    "zscaler.region": "CUSTOM",
+    "zscaler.customRegion": {    
+        "host": "https://int.api.zscwp.io",
+        "auth": {
+            "host":"https://z-cwp-int.us.auth0.com",
+            "clientId": "jx6HUO8bjs1UXge469zfoaj4lrPTpLyr",
+            "scope": "offline_access openid email",
+            "audience":"https://api.zscwp.io/iac"
+        }
+    }
+}
