@@ -32,8 +32,3 @@ jobs:
           fail_build : 'false'
           output_format : 'human+github-sarif'
           region : 'CUSTOM'
-      - name: Upload SARIF file
-        if: ${{ success() || failure() && (steps.iac-scan.outputs.sarif_file_path != '') }}
-        uses: github/codeql-action/upload-sarif@v1
-        with:
-          sarif_file: ${{ steps.iac-scan.outputs.sarif_file_path }}
