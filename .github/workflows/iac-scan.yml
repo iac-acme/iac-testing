@@ -21,19 +21,15 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
       - name: Zscaler IaC Scan
-        # You may pin to the exact commit or the version.
-        # uses: ZscalerCWP/Zscaler-IaC-Action@a362f229d63110524de8af211961c206001bbdd1
         uses: ZscalerCWP/Zscaler-IaC-Action@v0.1.0
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          client_id : ${{ secrets.ZSCANNER_INT_CLIENTID }}
-          client_secret : ${{ secrets.ZSCANNER_INT_SECRET }}
+          client_id : ${{ secrets.ZSCANNER_CLIENT_ID }}
+          client_secret : ${{ secrets.ZSCANNER_CLIENT_SECRET_KEY }}
           fail_build : 'true'
           output_format : 'human+github-sarif'
           region : 'CUSTOM'
