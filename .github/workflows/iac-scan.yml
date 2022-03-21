@@ -24,6 +24,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Zscaler IaC Scan
+        id : iac-scan
         uses: ZscalerCWP/Zscaler-IaC-Action@v0.1.0
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
