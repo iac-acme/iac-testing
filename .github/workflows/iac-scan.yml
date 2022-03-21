@@ -24,17 +24,16 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Zscaler IaC Scan
-        id : iac-scan
+        id : zscaler-iac-scan
         uses: ZscalerCWP/Zscaler-IaC-Action@v0.1.0
         with:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           client_id : ${{ secrets.ZSCANNER_CLIENT_ID }}
           client_secret : ${{ secrets.ZSCANNER_CLIENT_SECRET_KEY }}
           fail_build : 'false'
           output_format : 'human+github-sarif'
           region : 'CUSTOM'      
       - name: Upload SARIF file
-        if: ${{ success() || failure() && (steps.iac-scan.outputs.sarif_file_path != '') }}
+        if: ${{ success() || failure() && (steps.zscaler-iac-scan.outputs.sarif_file_path != '') }}
         uses: github/codeql-action/upload-sarif@v1
         with:
-          sarif_file: ${{ steps.iac-scan.outputs.sarif_file_path }}          
+          sarif_file: ${{ steps.zscaler-iac-scan.outputs.sarif_file_path }}          
