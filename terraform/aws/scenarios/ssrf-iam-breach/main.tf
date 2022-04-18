@@ -386,7 +386,7 @@ resource "aws_instance" "privileged-instance" {
     http_tokens                 = "optional"
   }
 
-  monitoring = "false"
+  monitoring = "true"
   private_ip = "10.10.20.69"
 
   root_block_device {
