@@ -131,7 +131,7 @@ resource "aws_security_group" "km_alb_sg" {
 # Traffic to the ECS Cluster should only come from the ALB
 resource "aws_security_group" "km_ecs_sg" {
   name        = "km_ecs_sg"
-  description = "allow inbound access from the ALB only"
+  description = "allow inbound access from the ALB"
   vpc_id      = aws_vpc.km_vpc.id
 
   ingress {
